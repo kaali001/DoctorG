@@ -1,0 +1,134 @@
+body {
+    background-color:  #F2F8FE;
+    
+    letter-spacing: 1px;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+
+  .login-box {
+     position: absolute;
+    margin-left: 65%;
+    margin-top: 4.8rem;
+    
+    background-color: #FFFFFF;
+    border: 1px solid #040a0c;
+    text-align: center;
+    inset: 5px;
+    padding: 50px 40px;
+    z-index: 10;
+    color: #595b5c;
+     width: 34rem;
+    height: 35rem;
+    max-width: 430px;
+    
+  }
+  
+  .form-group {
+      margin-top: 1rem;
+      position:relative;
+      display:flex;
+      align-items: center;
+      justify-content: start;
+  }
+  
+  .form-control{
+    
+      width: 95%;
+      height: 30px;
+      background: transparent;
+      border: none;
+      outline: none;
+      border-bottom: 1px solid #3b3e3f;
+      font-size: 20px;
+      padding-left: 10px;
+      color: #494c4d;
+  
+  }
+  
+ 
+  .login-box h3{
+    font-size: 30px;
+   
+    letter-spacing: 1px;
+  }
+  
+  ::placeholder {
+    font-size: 17px;
+    color: rgba(0, 0, 0, 0.349);
+    letter-spacing: 1px;
+  }
+  
+
+ .fa {
+    font-size: 20px;
+ }
+
+/* 
+ student register button */
+ 
+ #login_button{
+  position: relative;
+  width: 100%;
+  height:2.7rem;
+  transition: 1s;
+  margin-top: 2rem;
+}
+
+.btn-primar{
+    color: white;
+    background-color: rgb(104, 103, 104);
+}
+
+
+
+
+
+ /*   College register button */
+  #signup_button{
+    position: relative;
+    width: 80%;
+    height:2rem;
+    transition: 1s;
+    margin-top: 1rem;
+  
+  }
+
+  .btn-signup{
+    color: white;
+    background-color: rgb(167, 108, 216);
+}
+
+
+
+
+  
+.fotter {
+    
+    margin-top: -2rem;
+    display: flex;
+    justify-content:space-between;
+  
+
+}
+.fotter a{
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: black;
+
+}
+
+.footer>p{
+    word-spacing: -3px;
+}
+.fotter >p>a  :hover{
+  color: deepskyblue;
+  
+}

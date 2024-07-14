@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Doctor-G </title>
+
+    <!-- Bootstrap CSS link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+      <link href="css/style.css" rel="stylesheet">
+    <style>
+      
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            background: rgb(114, 199, 199);
+            border: none;
+            margin-bottom: 20px;
+        }
+        .card h2 {
+            color: #696e66;
+        }
+        .card ul, .card p {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar Start -->
+    {{>navbar}}
+<!-- Navbar End -->
+
+<div class="container">
+    <div class="text-center mb-5">
+        <h1>About Us </h1>
+        <p>Welcome to Doctor-G , a comprehensive platform designed to facilitate seamless interaction between doctors and cognitive patients.</p>
+    </div>
+
+    <div class="row">
+    
+        <div class="col-md-5">
+            <div class="card p-3">
+                <h2>Our Mission</h2>
+                <p>At Doctor-G, our mission is to revolutionize cognitive therapy by providing an efficient and effective platform for doctors and patients. We aim to enhance the therapeutic process through technology, making it easier for doctors to manage their patients and for patients to engage with their therapy.</p>
+            </div>
+        </div>
+
+                <div class="col-md-6">
+            <div class="card p-3">
+                <h2>Features</h2>
+                <ul>
+                    <li><strong>Doctor Interface:</strong> Developed a user-friendly interface for doctors to manage their patients effectively.</li>
+                    <li><strong>Patient Interaction:</strong> Cognitive patients can access their assigned tasks and upload responses.</li>
+                    <li><strong>Notifications:</strong> Patients receive notifications for new tasks assigned by their doctors.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and Popper.js link -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-0/sEATyxdQw/sDYJWxUI7z2nUw2McwgdoaRCZsdj64AVjpC3bZSpFqO7lwA33G3F" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-QGkMz3HaW9A7HMIe4OZ2z8wSPfQ1kZ8HozJ4P7szRGbVlGe9cShW9B/Wlrf7knhR" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+    <!-- Bootstrap CSS link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    {{!-- <link rel="stylesheet" href="css/style.css"> --}}
+
+</head>
+</head>
+
+
+<style>
+
+body{
+    background: #afadad;
+}
+    
+#sidebar {
+
+    position: relative;
+    margin-left: 2rem;
+    min-width: 5rem;
+    max-width: 8rem;
+    height: 30rem;
+    background: #616161;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.container{
+    margin-left: .5rem;
+    margin-top: 1rem;
+}
+
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #838383;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    
+   margin-left: 1rem;
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    color: rgb(196, 192, 192);
+}
+
+   
+ 
+
+#sidebar ul li a:hover {
+    color: #222327;
+    background: #fff;
+}
+
+.nav-item.nav-link.active {
+    background: rgb(79, 79, 170); 
+    color: black;
+ 
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+ #update-profile{
+    display: none;
+    margin-top: -30rem;
+  margin-left: 20rem;
+ }
+
+ #image-container {
+              display: none; 
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 20%;
+  
+             text-align: center;
+ 
+            margin-top: -30rem;
+            margin-left: 20rem;
+        }
+#image-container h2{
+    margin-bottom: 4rem;
+}
+       
+table {
+
+text-align: center;
+
+width: 800px;
+
+border-collapse: collapse;
+
+
+
+font-size: 20px;
+
+}
+.sides{
+    margin-bottom: 100rem;
+    margin-top: 50rem;
+}
+td{
+    margin-right: 5rem;
+}
+
+#puzzel-container {
+            display: block; 
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 20%;
+  
+  text-align: center;
+  margin-top: -30rem;
+  margin-left: 20rem;
+        }
+
+{{!-- Connectionto doctor --}}
+
+.connect_btn{
+    margin-left: 85%;
+    margin-top: 2%;
+ }
+ #connect_doctor{
+    display: none;
+
+   
+    margin-left: 20rem;
+    margin-top: -30rem;
+ 
+ }   
+
+#task-container{
+    display: none;
+    margin-top: -30rem;
+  margin-left: 20rem;
+}
+
+</style>
+
+<body>
+    
+
+    <button type="button" class="btn connect_btn btn-primary" id="connect-doctr" onclick="connect()">Connect to Doctor</button>
+ 
+
+
+
+
+<!-- Sidebar  -->
+<div id="sidebar">
+    <nav >
+    
+        <div class="container">
+            <a href="#" onclick="profile()"><img src="images\pngtree-doctor-vector-icon-png-image_3725271.jpg" class="rounded-circle" alt="Cinque Terre"
+                width="80" height="80"></a>
+            
+        </div>
+        <ul class="list-unstyled components">
+    
+    
+    
+            <li>
+                <a class="nav-item nav-link" href="#" id="puzzel" onclick="puzzel()">Puzzels</a>
+            </li>
+    
+            <li>
+                <a class="nav-item nav-link" href="#"  id="game" onclick="game()">Games</a>
+            </li>
+            <li>
+                <a class="nav-item  nav-link" href="#" id="quize" onclick="show_content()">Quizes</a>
+            </li>
+    
+            <li>
+                <a class="nav-item nav-link" href="#" id="task" onclick="tasks()">Tasks</a>
+            </li>
+        </ul>
+    
+        <ul class="list-unstyled CTAs">
+            <li>
+                <a class="nav-item nav-link" href="login" class="download">Logout</a>
+            </li>
+    
+        </ul>
+    </nav>
+
+</div>
+
+
+<div id="update-profile">
+
+    <div class="container mt-5 " style="width: 55rem;">
+        <div class="card border-primary">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">Patient Profile Update</h2>
+            </div>
+            <div class="card-body" style="max-height: 520px; overflow-y: auto;">
+                <form id="profileForm" enctype="multipart/form-data">
+                    <div class="mb-2">
+                        <label for="profilePhoto" class="form-label">Profile Photo:</label>
+                        <input type="file" class="form-control" id="profilePhoto" name="profilePhoto" accept="image/*">
+                    </div>
+                    <div class="mb-2">
+                        <label for="age" class="form-label">Age:</label>
+                        <input type="number" class="form-control" id="age" name="age">
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6 mb-2">
+                            <label for="dob" class="form-label">Date of Birth:</label>
+                            <input type="date" class="form-control" id="dob" name="dob">
+                        </div>
+
+                        <div class="col-md-6 mb-2">
+                            <label for="bloodGroup" class="form-label">Blood Group:</label>
+                            <select class="form-select" id="bloodGroup" name="bloodGroup">
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    <div class="mb-2">
+                        <label for="address" class="form-label">Address:</label>
+                        <input type="text" class="form-control" id="address" name="address">
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="phone" class="form-label">Phone Number:</label>
+                        <input type="tel" class="form-control" id="phone" name="phone">
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="medicalHistory" class="form-label">Medical History:</label>
+                        <textarea class="form-control" id="medicalHistory" name="medicalHistory"></textarea>
+                    </div>
+
+                    <div class="form-check mb-2">
+                        <input type="checkbox" class="form-check-input" id="acceptTerms" name="acceptTerms" required>
+                        <label class="form-check-label" for="acceptTerms">I accept the terms and conditions.</label>
+                    </div>
+
+                    <button type="button" class="btn btn-primary" onclick="updateProfile()">Update Profile</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="connect_doctor">
+
+    <div class="card mb-3" style="width: 570px; height:260px">
+
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="images\doctor.jpg" class="card-image" style="width: 200px; border-radius:100%;" alt="...">
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h5 class="card-title">Preethi</h5>
+                    <p class="card-text">Mob: 9865868568</p>
+                    <p class="card-text">Experiance : 10 yrs</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+                    </p>
+                    <a href="#" class="btn btn-primary" target="_blank">connect</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card mb-3" style="width: 570px; height:260px">
+
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="images\pallab-gangopadhyay.jpg" class="card-image" style="width: 200px; border-radius:100%;"
+                    alt="...">
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h5 class="card-title" Pallab</h5>
+                        <p class="card-text">Mob: 6525368568</p>
+                        <p class="card-text">Experiance : 25 yrs</p>
+                        <p class="card-text"><small class="text-muted">Last updated 2 mins ago</small>
+                        </p>
+                        <a href="" class="btn btn-primary" target="_blank">connect</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="image-container">
+
+    <h2>Practice Games </h2>
+    <table>
+
+        <tr class="sides">
+
+            <td><img src="images\memory-cards.png" alt=" apple" width="200"></td>
+            <td><img src="images\remember-the-face.png" alt="apple" width="200"></td>
+            <td><img src="images\logic-balls.png" alt="apple" width="200"></td>
+
+        </tr>
+
+        <tr>
+            <th>Game 1</th>
+
+            <th>Game 2</th>
+
+            <th>Game 3</th>
+        </tr>
+
+
+    </table>
+
+</div>
+
+
+<div id="puzzel-container">
+
+    <h2>Puzzles</h2>
+
+    <table>
+
+
+        <tr class="sides">
+            <td> <img src="images\imgbin-puzzle.png" alt="apple" width="200"></td>
+            <td><img src="images\spot-the-difference.png" alt="apple" width="200"></td>
+            <td><img src="images\unnamed.png" alt="apple" width="200"></td>
+
+        </tr>
+        <tr>
+
+            <th>Game 1</th>
+
+            <th>Game 2</th>
+
+            <th>Game 3</th>
+
+        </tr>
+
+
+
+    </table>
+
+</div>
+
+<div id="task-container">
+    <h2>Today's Task</h2>
+
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header bg-success">
+                <h5 class="card-title">Assigned Task: To improve Fine Motor Skills.</h5>
+            </div>
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">Assigned by Dr. Preethi</h6>
+                <p class="card-text"><strong>Task Description:</strong> Do the activities like coloring, drawing, or using small objects, which helps to improve fine motor skills and hand-eye coordination.</p>
+                <p class="card-text"><strong>Due Date:</strong> 8 Sept, 2023</p>
+                <p class="card-text"><strong>Instructions:</strong> Include a picture of his drawing in the report.</p>
+                
+                <!-- Report Box -->
+                <div class="form-group">
+                    <label for="report"><strong>Report:</strong></label>
+                    <textarea class="form-control" id="report" rows="4" placeholder="Enter your report here"></textarea>
+                </div>
+                
+               
+                <div class="form-group">
+                    <label for="fileUpload">Upload File:</label>
+                    <input type="file" class="form-control-file" id="fileUpload">
+                </div>
+                
+             
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-primary">Send Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+  
+<script>
+
+function setActiveButton(buttonId) {
+    // Remove "active" class from all buttons
+    var buttons = document.querySelectorAll(".nav-item.nav-link");
+    buttons.forEach(function (button) {
+        button.classList.remove("active");
+    });
+
+    // Add "active" class to the clicked button
+    var activeButton = document.getElementById(buttonId);
+    activeButton.classList.add("active");
+}
+function profile() {
+       
+   var v = document.getElementById("update-profile");
+   var w = document.getElementById("task-container");
+   var x = document.getElementById("puzzel-container");
+   var y = document.getElementById("image-container");
+   var z = document.getElementById("connect_doctor");
+    var s= document.getElementById("connect-doctr");
+
+  if (w.style.display === "none") {
+       v.style.display ="block";
+       w.style.display ="none";
+      x.style.display ="none";
+      y.style.display ="none";
+      z.style.display = "none";
+       s.style.display = "none";
+   
+  } else {
+    v.style.display = "block";
+    w.style.display ="none";
+     x.style.display = "none";
+    y.style.display ="none";
+    z.style.display = "none";
+    s.style.display = "none";
+   
+  }
+}
+
+
+
+function game() {
+    setActiveButton("game");
+  var v = document.getElementById("update-profile");
+  var w = document.getElementById("task-container");
+  var x = document.getElementById("image-container");
+  var y = document.getElementById("puzzel-container");
+  var z = document.getElementById("connect_doctor");
+
+  if (x.style.display === "none") {
+      v.style.display ="none";
+     w.style.display="none";
+     x.style.display = "block";
+     y.style.display="none";
+     z.style.display="none";
+  } else{
+    x.style.display="block";
+    y.style.display="none";
+  }
+}
+
+function puzzel() {
+    setActiveButton("puzzel");
+     var v = document.getElementById("update-profile");
+     var w = document.getElementById("task-container");
+  var x = document.getElementById("puzzel-container");
+  var y = document.getElementById("image-container");
+  var z = document.getElementById("connect_doctor");
+  if (x.style.display === "none") {
+     v.style.display ="none";
+     w.style.display="none";
+     x.style.display = "block";
+     y.style.display ="none";
+     z.style.display="none";
+
+  } else {
+    x.style.display = "block";
+  }
+}
+
+function connect() {
+   
+     var v = document.getElementById("update-profile");
+     var w = document.getElementById("task-container");
+     var x = document.getElementById("puzzel-container");
+     var y = document.getElementById("image-container");
+     var z = document.getElementById("connect_doctor");
+     if (z.style.display === "none") {
+            v.style.display ="none";
+            w.style.display="none";
+            x.style.display ="none";
+            y.style.display ="none";
+            z.style.display = "block";
+        } else {
+    x.style.display = "block";
+    y.style.display ="none";
+    z.style.display = "none";
+   
+  }
+}
+
+
+function tasks() {
+    setActiveButton("task");
+     var v = document.getElementById("update-profile");
+   var w = document.getElementById("task-container");
+   var x = document.getElementById("puzzel-container");
+   var y = document.getElementById("image-container");
+   var z = document.getElementById("connect_doctor");
+    var s= document.getElementById("connect-doctr");
+
+  if (w.style.display === "none") {
+       w.style.display ="block";
+      x.style.display ="none";
+      y.style.display ="none";
+      z.style.display = "none";
+       s.style.display = "none";
+   
+  } else {
+    w.style.display = "block";
+     x.style.display = "none";
+    y.style.display ="none";
+    z.style.display = "none";
+    s.style.display = "none";
+   
+  }
+}
+
+
+
+</script>
+
+</body>
+</html>

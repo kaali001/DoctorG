@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+      <!-- Bootstrap CSS link -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+      <link rel="stylesheet" href="css/style.css">
+</head>
+
+<style>
+
+
+
+#sidebar {
+    min-width: 13rem;
+    max-width: 14rem;
+    height: 38rem;
+    background: #616161;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #838383;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    color: rgb(196, 192, 192);
+}
+
+#sidebar ul li a:hover {
+    color: #222327;
+    background: #fff;
+}
+
+
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+
+/* Add your CSS styles here */
+.nav-item.nav-link.active {
+    background: rgb(249, 249, 255); 
+    color: black;
+ 
+}
+
+
+ #connect_doctor{
+    
+
+    width: 20rem;
+    margin-left: 15rem;
+    margin-top: -25rem;
+ 
+ }   
+
+#content-today-session,
+#content-upcoming-session,
+#content-all-patients,
+#content-alerts {
+    display: block; /* Initially set to block */
+}
+
+#content-area{
+    margin-left: 22rem;
+    margin-top: -37rem;
+}
+
+.card-image{
+    margin-top: 10px;
+    margin-left: 2px;
+    width:120px;
+    height: 150px;
+}
+
+</style>
+
+<body>
+    
+
+
+    
+<!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg border-bottom border-light  navbar-light sticky-top p-0 px-4 px-lg-5" id="navb">
+    <a href="/" class="navbar-brand d-flex align-items-center">
+        <h2 class="m-0 " id="nav_heading"><img class="img-fluid me-2" src="images\doctor-logo-49384.png" alt="logo"
+            style="width: 45px;">
+                Mental</h2>
+    </a>
+    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-4 py-lg-0">
+            <a href="Home" class="nav-item nav-link active">Home</a>
+            <a href="about" class="nav-item nav-link">About</a>
+            <a href="services" class="nav-item nav-link">Service</a>
+            <a href="contact" class="nav-item nav-link">Contact</a>
+        </div>
+      
+    </div>
+    
+    </nav>
+<!-- Navbar End -->
+
+
+
+<!-- Sidebar -->
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <h3>Doctor Panel</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+        <li>
+            <a class="nav-item nav-link" href="#" id="today-session">Today's Session</a>
+        </li>
+        <li>
+            <a class="nav-item nav-link" href="#" onclick="view_content()" id="upcoming-session">Upcoming Session</a>
+        </li>
+        <li>
+            <a class="nav-item nav-link" href="#" onclick="show_content()" id="all-patients">All Patients</a>
+        </li>
+        <li>
+            <a class="nav-item nav-link" href="#" id="alerts">Alert's</a>
+        </li>
+    </ul>
+
+    <ul class="list-unstyled CTAs">
+        <li>
+            <a class="nav-item nav-link" href="login" class="download">Logout</a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Content area for cards -->
+
+<div id="content-area">
+
+
+
+    <!-- Content for "Today's Session" -->
+    <div id="content-today-session" class="content-section">
+        <!-- This section will be populated by JavaScript -->
+        <h1>Today's Sessions</h1>
+    
+        <div class="overflow-auto">
+    
+            <table class="table " style="margin-top: 40px;">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="card mb-3" style="max-width: 360px;" style="max-height: 420px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="images\istockphoto-1263463512-612x612.jpg" class="card-image"alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Raghvendra Shukla</h5>
+                                            <p class="card-text">Mob: 9865868568</p>
+                                            <p class="card-text">Time: 1pm</p>
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+                                            </p>
+                                            <a href="/reports" class="btn btn-primary" target="_blank">Visit</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="card mb-3" style="max-width: 360px;" style="max-height: 420px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="images\istockphoto-639541732-612x612.jpg" class="card-image"alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Abhishek </h5>
+                                            <p class="card-text">Mob: 7456486945</p>
+                                            <p class="card-text">Time: 2pm-3pm</p>
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+                                            </p>
+                                           <a href="/reports" class="btn btn-primary" target="_blank">Visit</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                           
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="card mb-3" style="max-width: 360px;" style="max-height: 420px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="images\istockphoto-1448383509-612x612.jpg" class="card-image"alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Satyam </h5>
+                                            <p class="card-text">Mob: 8546322546</p>
+                                            <p class="card-text">Time: 3pm-4pm</p>
+                                            <p class="card-text"><small class="text-muted">Last updated 5 mins ago</small>
+                                            </p>
+                                          <a href="/reports" class="btn btn-primary" target="_blank">Visit</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                          
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+    
+        </div>
+    
+    
+    </div>
+
+
+    <!-- Content for "Upcoming Session" -->
+    <div id="content-upcoming-session" class="content-section">
+        <!-- This section will be populated by JavaScript -->
+    
+        <h1>Upcoming session</h1>
+    
+        <div class="overflow-auto">
+    
+            <table class="table " style="margin-top: 40px;">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="card mb-3" style="max-width: 360px;" style="max-height: 420px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="images\istockphoto-1399611777-170667a.jpg" class="card-image" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Raghvendra Shukla</h5>
+                                            <p class="card-text">Mob: 9865868568</p>
+                                            <p class="card-text">Time: 1pm</p>
+                                            <p class="card-text"><small class="text-muted">Last updated 9 mins ago</small>
+                                            </p>
+                                            <a href="/reports" class="btn btn-primary" target="_blank">Visit</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="card mb-3" style="max-width: 380px;" style="max-height: 420px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="images\istockphoto-180808399-612x612.jpg" class="card-image" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Raghvendra Shukla</h5>
+                                            <p class="card-text">Mob: 9865868568</p>
+                                            <p class="card-text"></p>
+                                            <p class="card-text">Time: 3pm-4pm</p>
+                                            <p class="card-text"><small class="text-muted">Last updated 1 mins ago</small>
+                                            </p>
+                                            <a href="/reports" class="btn btn-primary" target="_blank">Visit</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+    
+                        </td>
+                        <td>
+    
+                        </td>
+                        <td>
+    
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+    
+        </div>
+    
+    </div>
+
+    <!-- Content for "All Patients" -->
+    <div id="content-all-patients" class="content-section">
+        <!-- Search box for patient search -->
+        <h2>All patients</h2>
+         <div class="search-container" style="margin-left:60%">
+            <input type="text" placeholder="Search..." >
+            <button type="submit">Search</button>
+        </div>
+        <div class="overflow-auto">
+    
+            <table class="table " style="margin-top: 40px;">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="card mb-3" style="max-width: 350px;" style="max-height: 420px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="images\istockphoto-639541732-612x612.jpg" class="card-image" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Abhishek </h5>
+                                            <p class="card-text">Mob: 7456486945</p>
+            
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+                                            </p>
+                                            <a href="/reports" class="btn btn-primary" target="_blank">Visit</a> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="card mb-3" style="max-width: 350px;" style="max-height: 420px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="images\istockphoto-180808399-612x612.jpg" class="card-image" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Mohan </h5>
+                                            <p class="card-text">Mob: 7456486945</p>
+            
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+                                            </p>
+                                         <a href="/reports" class="btn btn-primary" target="_blank">Visit</a> 
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="card mb-3" style="max-width: 350px;" style="max-height: 420px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="images\istockphoto-1399611777-170667a.jpg" class="card-image" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Abhishek </h5>
+                                            <p class="card-text">Mob: 7456486945</p>
+            
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+                                            </p>
+                                           <a href="/reports" class="btn btn-primary" target="_blank">Visit</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="card mb-3" style="max-width: 350px;" style="max-height: 420px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="images\istockphoto-1448383509-612x612.jpg" class="card-image" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Satyam </h5>
+                                            <p class="card-text">Mob: 7456486945</p>
+            
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+                                            </p>
+                                           <a href="/reports" class="btn btn-primary" target="_blank">Visit</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="card mb-3" style="max-width: 350px;" style="max-height: 420px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="images\istockphoto-1263463512-612x612.jpg" class="card-image" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Raghvendra</h5>
+                                            <p class="card-text">Mob: 8956486945</p>
+            
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+                                            </p>
+                                          <a href="/reports" class="btn btn-primary" target="_blank">Visit</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="card mb-3" style="max-width:350px;" style="max-height: 420px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="images\images (1).jpg" class="card-image" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Shivam</h5>
+                                            <p class="card-text">Mob: 8564486945</p>
+            
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+                                            </p>
+                                          <a href="/reports" class="btn btn-primary" target="_blank">Visit</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+    
+        
+    </div>
+
+    <!-- Content for "Alerts" -->
+    <div id="content-alerts" class="content-section">
+        <!-- This section will be populated by JavaScript -->
+    
+        <h1> Alert's </h1>
+        <div class="card" style="margin-top: 5%; width:700px">
+            <div class="card-header" style="background-color: rgb(243, 141, 141);">
+                Subject : Memory curve declining
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Abhishek singh</h5>
+                <p class="card-text">Not perforng the assigned tasks for memory capacity growth.</p>
+                <a href="#" class="btn btn-primary">See Report</a>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 5%; width:700px">
+            <div class="card-header" style="background-color: rgb(243, 141, 141);">
+                Subject : Attention curve declining
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Raghvendra Shukla</h5>
+                <p class="card-text">Your suggested task not helping, Suggest some another tasks.</p>
+                <a href="#" class="btn btn-primary">See Report</a>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+
+
+<script>
+ function setActiveButton(buttonId) {
+    // Remove "active" class from all buttons
+    var buttons = document.querySelectorAll(".nav-item.nav-link");
+    buttons.forEach(function (button) {
+        button.classList.remove("active");
+    });
+
+    // Add "active" class to the clicked button
+    var activeButton = document.getElementById(buttonId);
+    activeButton.classList.add("active");
+}
+
+document.getElementById("today-session").addEventListener("click", function () {
+    setActiveButton("today-session");
+    
+    // Add your code to display the corresponding content for Today's Session
+    // Example: show or hide content by setting its style.display property
+    document.getElementById("content-today-session").style.display = "block";
+    document.getElementById("content-upcoming-session").style.display = "none";
+    document.getElementById("content-all-patients").style.display = "none";
+    document.getElementById("content-alerts").style.display = "none";
+});
+
+document.getElementById("upcoming-session").addEventListener("click", function () {
+    setActiveButton("upcoming-session");
+    
+    // Add your code to display the corresponding content for Upcoming Session
+    document.getElementById("content-today-session").style.display = "none";
+    document.getElementById("content-upcoming-session").style.display = "block";
+    document.getElementById("content-all-patients").style.display = "none";
+    document.getElementById("content-alerts").style.display = "none";
+});
+
+document.getElementById("all-patients").addEventListener("click", function () {
+    setActiveButton("all-patients");
+    
+    // Add your code to display the corresponding content for All Patients
+    document.getElementById("content-today-session").style.display = "none";
+    document.getElementById("content-upcoming-session").style.display = "none";
+    document.getElementById("content-all-patients").style.display = "block";
+    document.getElementById("content-alerts").style.display = "none";
+});
+
+document.getElementById("alerts").addEventListener("click", function () {
+    setActiveButton("alerts");
+    
+    // Add your code to display the corresponding content for Alerts
+    document.getElementById("content-today-session").style.display = "none";
+    document.getElementById("content-upcoming-session").style.display = "none";
+    document.getElementById("content-all-patients").style.display = "none";
+    document.getElementById("content-alerts").style.display = "block";
+});
+
+
+
+
+
+</script>
+    
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+</body>
+</html>

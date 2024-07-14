@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor G</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/login.css">
+       <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+     <style>
+      
+
+
+
+
+
+#page_content >img{
+     margin-top: -2.5rem; 
+  /* margin-left: 3rem;  */
+    width: 38rem;
+    height: 38rem;
+    
+}
+
+#page_content > h2{
+    margin-top: 2.5rem;
+    margin-left: 3rem;
+    font: 4em sans-serif;
+    color: rgb(72, 78, 80);
+}
+
+
+.btr{
+
+border-top-right-radius: 5px !important;
+}
+
+
+.btl{
+
+border-top-left-radius: 5px !important;
+}
+
+.btn-primar{
+    color: white;
+    background-color: #515355;
+}
+
+
+
+.nav-pills{
+
+display:table !important;
+width:100%;
+background-color: #000000;
+}
+
+
+
+.nav-item{
+    display: table-cell;
+    background-color: #fff;
+
+    
+
+    
+}
+
+
+.selecter {
+     width: 19%;
+     margin-left: 43rem;
+     margin-top: -85rem;
+     
+     
+}
+
+.selecter >ul>li>a{
+    color: #000000;
+}
+
+
+.nav-item:hover{
+    background-color: #687174;
+}
+
+
+
+.tab-pan >h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+ </style>
+
+
+</head>
+<body>
+
+    <div id="page_content">
+        <h2>Login to your Account</h2>
+        <img class="img-fluid image_left animated pulse infinite" style="animation-duration: 3s;" src="images\Mobile-login-Cristina-PhotoRoom.png-PhotoRoom.png" alt="image">
+    </div>
+
+
+    <div class="d-flex justify-content-center align-items-center mt-5">
+
+
+      <div class="selecter">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <li class="nav-item text-center">
+            <a class="nav-link active btl" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Patient</a>
+          </li>
+          <li class="nav-item text-center">
+            <a class="nav-link btr" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Doctor</a>
+          </li> 
+       </ul>
+     </div>
+
+        <div class="login-box ">
+
+
+            <div class="tab-content" id="pills-tabContent">
+
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                  
+                 
+                 
+                    <h3>Login</h3>
+                    <form class="form-signin" action="/login" method="post">
+                      <div class="form-group">
+                        <i class="fa fa-user"></i>
+                        <input type="email" class="form-control" id="email" placeholder="Email" autocomplete="off" name="email">
+                      </div>
+
+                       <input type="hidden"  name="check_box" value="student"/>
+          
+                      <div class="form-group">
+                        <i class="fa fa-unlock-alt"></i>
+                        <input type="password" class="form-control" id="pwd" placeholder="Password" autocomplete="off" name="password">
+                      </div>
+          
+                      <div class="button_group" id="login_button" class="d-grid gap-2 col-6 mx-auto">
+                          
+                          <button class="btn btn-lg btn-primar btn-block" type="submit">Sign in</button>
+                      </div>
+          
+                      <div class="fotter">
+                         <a>Forgot Password ?</a>
+                         <a href="signup">Sign Up</a>
+                      </div>
+                    </form>
+                 
+
+                </div>
+
+
+                <!-- College login form  -->
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                  
+
+                  
+                  <h3>Login</h3>
+                  <form class="form-signin" action="/login" method="post">
+                    <div class="form-group">
+                      <i class="fa fa-user"></i>
+                      <input type="email" class="form-control" id="email" placeholder="Email" autocomplete="off" name="email">
+                    </div>
+
+                     <input type="hidden"  name="check_box" value="admin"/>
+        
+                    <div class="form-group">
+                      <i class="fa fa-unlock-alt"></i>
+                      <input type="password" class="form-control" id="pwd" placeholder="Password" autocomplete="off" name="password">
+                    </div>
+        
+                    <div class="button_group" id="login_button" class="d-grid gap-2 col-6 mx-auto">
+                        
+                        <button class="btn btn-lg btn-primar btn-block" type="submit">Sign in</button>
+                    </div>
+        
+                    <div class="fotter">
+                       <a>Forgot Password ?</a>
+                       <a href="signup">Sign Up</a>
+                    </div>
+                  </form>
+
+
+
+                </div>
+                
+            </div>
+            
+          
+          
+
+        </div>
+        
+
+      </div>
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js" ></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>
