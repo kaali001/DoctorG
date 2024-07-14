@@ -2,13 +2,13 @@
   "name": "express",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "node dist/src/app.js",
+    "dev": "nodemon src/app.js",
     "build": "echo 'Building the project...' && npm run clean && npm run copy",
     "clean": "rm -rf dist",
-    "copy": "mkdir -p dist && cp -R public dist/ && cp -R src dist/ && cp index.js dist/"
+    "copy": "mkdir -p dist && cp -R public dist/public && cp -R src dist/src && cp package.json dist/package.json"
   },
   "author": "Satyendra",
   "license": "ISC",

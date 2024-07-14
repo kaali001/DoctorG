@@ -14,9 +14,9 @@ const { constants } = require('buffer');
 
 const port = process.env.PORT || 3000;
 
-require("./src/db/conn");  // to connect the file of the database
-const Register = require("./src/models/patients");
-const Admin = require("./src/models/doctors");
+require("./db/conn");  // to connect the file of the database
+const Register = require("./models/patients");
+const Admin = require("./models/doctors");
 
 
 // Public static path
