@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "node dist/src/index.js",
-    "dev": "nodemon src/index.js",
+    "start": "node dist/src/app.js",
+    "dev": "nodemon src/app.js",
     "build": "echo 'Building the project...' && npm run clean && npm run copy",
     "clean": "rimraf dist",
     "copy": "mkdir dist && cpx \"public/**/*\" dist/public && cpx \"src/**/*\" dist/src && cpx \"package.json\" dist/"
@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
     "express": "^4.18.2",
     "hbs": "^4.2.0",
     "jquery": "^3.7.1",
@@ -22,7 +23,7 @@
     "nodemon": "^3.0.1"
   },
   "devDependencies": {
-    "rimraf": "^3.0.2",
-    "cpx": "^1.5.0"
+    "cpx": "^1.5.0",
+    "rimraf": "^3.0.2"
   }
 }
